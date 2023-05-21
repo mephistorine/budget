@@ -1,0 +1,15 @@
+<form [formGroup]="form" (submit.prevent)="onSubmitForm()" class="form">
+  <h2>Login</h2>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input formControlName="email" name="email" matInput type="text">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input formControlName="password" name="password" autocomplete="username" matInput type="password">
+  </mat-form-field>
+
+  <button type="submit" mat-flat-button color="primary">{{ isLoading() ? "Loading..." : "Login" }}</button>
+</form>

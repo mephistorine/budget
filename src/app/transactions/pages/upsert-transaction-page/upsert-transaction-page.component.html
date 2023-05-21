@@ -1,0 +1,29 @@
+<div class="page container">
+  <h2>Transaction create</h2>
+
+  <form [formGroup]="form" class="form" (submit.prevent)="onSubmitForm()">
+    <mat-button-toggle-group formControlName="kind">
+      <mat-button-toggle value="EXPENSE">Expense</mat-button-toggle>
+      <mat-button-toggle value="INCOME">Income</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input formControlName="amount" matInput type="number" inputmode="decimal">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="categoryId">
+        <mat-option *ngFor="let category of categories | async" [value]="category.id">{{ category.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit">{{ isLoading() ? "Loading..." : "Submit" }}</button>
+  </form>
+</div>
