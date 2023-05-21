@@ -1,2 +1,17 @@
-<p>home-page works!</p>
-<a routerLink="/transactions/create">Create transaction</a>
+<div class="page container home-container">
+  <div>
+    <mat-list>
+      <ng-container *ngFor="let group of transactions | async">
+        <h3 matSubheader>{{ group.date }}</h3>
+
+        <mat-list-item *ngFor="let tx of group.transactions">
+          <div *ngIf="tx.icon" matListItemAvatar class="icon" [attr.data-icon-type]="tx.icon.type">
+            {{ tx.icon.value }}
+          </div>
+          <h4 matListItemTitle [attr.data-tx-kind]="tx.transactionKind">{{ tx.amount }}</h4>
+          <p matListItemLine>{{ tx.categoryName ?? "Unknown category" }}</p>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { ApplicationConfig, importProvidersFrom } from "@angular/core"
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from "@angular/material/form-field"
+import { MAT_ICON_DEFAULT_OPTIONS, MatIconDefaultOptions } from "@angular/material/icon"
 import { provideAnimations } from "@angular/platform-browser/animations"
 import { provideRouter } from "@angular/router"
 import { SupabaseClient } from "@supabase/supabase-js"
@@ -27,6 +28,12 @@ export const appConfig: ApplicationConfig = {
       useValue: {
         appearance: "outline"
       } as MatFormFieldDefaultOptions
+    },
+    {
+      provide: MAT_ICON_DEFAULT_OPTIONS,
+      useValue: {
+        fontSet: "material-icons-outlined"
+      } as MatIconDefaultOptions
     },
     importProvidersFrom(EventPluginsModule)
   ]
