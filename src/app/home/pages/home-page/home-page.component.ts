@@ -91,7 +91,7 @@ export class HomePageComponent {
         const dayDiff = differenceInDays(curr, new Date())
         return {
           date: dayDiff >= -1 ? rtf.format(dayDiff, "day") : curr.toLocaleString("en-EN", {
-            dateStyle: "short"
+            dateStyle: "long"
           }),
           transactions
         }

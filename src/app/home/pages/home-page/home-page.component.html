@@ -4,7 +4,7 @@
       <ng-container *ngFor="let group of transactions | async">
         <h3 matSubheader>{{ group.date }}</h3>
 
-        <mat-list-item *ngFor="let tx of group.transactions">
+        <mat-list-item *ngFor="let tx of group.transactions" [routerLink]="[ 'transactions', tx.id ]">
           <div *ngIf="tx.icon" matListItemAvatar class="icon" [attr.data-icon-type]="tx.icon.type">
             {{ tx.icon.value }}
           </div>
